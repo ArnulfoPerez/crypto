@@ -5,6 +5,8 @@
 #include <fcntl.h>
 #include <stdlib.h> 
 
+#define MAX_KEY_LENGTH 20 // Can be anything from 1 to 13
+
 unsigned char  hex_to_int(char c){
         unsigned char  first = c / 16 - 3;
         unsigned char  second = c % 16;
@@ -55,5 +57,16 @@ int main(){
 	    i++;
       }
     }
+    
+    double q[MAX_KEY_LENGTH ][256];
+    
+    for (int index= 0; index< i ; index++ ) {
+	     for (int key_length= 0; key_length< MAX_KEY_LENGTH; key_length++ ) {
+		if(index % key_length == 0){
+			q[key_length][*(ptr + i) ]++;
+		}
+	     }
+    }
+    
      return(0);
 }
